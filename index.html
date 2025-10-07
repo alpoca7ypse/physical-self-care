@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Self-Care</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-login {
+            background: white;
+            color: #667eea;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Quick Menu Section */
+        .quick-menu {
+            max-width: 1200px;
+            margin: -4rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .menu-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* Artikel Grid */
+        .artikel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .artikel-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .artikel-card:hover {
+            transform: scale(1.03);
+        }
+
+        .artikel-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .artikel-content {
+            padding: 1.5rem;
+        }
+
+        .artikel-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .artikel-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Testimoni */
+        .testimoni-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimoni-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimoni-quote {
+            font-size: 3rem;
+            color: rgba(255,255,255,0.5);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .testimoni-text {
+            margin: 2rem 0 1rem 0;
+            font-style: italic;
+        }
+
+        .testimoni-author {
+            font-weight: bold;
+            color: #764ba2;
+        }
+
+        /* Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-card h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dashboard-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .dashboard-progress {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .dashboard-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+
+        .dashboard-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .status-good {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-warning {
+            background: #fefcbf;
+            color: #744210;
+        }
+
+        /* Fitur Tab */
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Meal Planner Table */
+        .meal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .meal-table th,
+        .meal-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .meal-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        .meal-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Schedule Grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .schedule-day {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .schedule-day.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Skincare Routine */
+        .routine-step {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Reminder List */
+        .reminder-list {
+            margin-top: 1rem;
+        }
+
+        .reminder-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reminder-time {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn-delete {
+            background: #fc8181;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Auth Forms */
+        .auth-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .auth-container h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+        }
+
+        /* Kontak */
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .kontak-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .kontak-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .quick-menu {
+                margin-top: 2rem;
+            }
+
+            .schedule-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🌿 Physical Self-Care</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#edukasi">Edukasi</a></li>
+                <li><a href="#fitur">Fitur</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#auth" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Physical Self-Care</h1>
+        <p>Mulai perjalanan hidup sehat Anda bersama kami</p>
+        <button class="hero-btn">Mulai Sekarang</button>
+    </section>
+
+    <!-- Quick Menu -->
+    <div class="quick-menu">
+        <div class="menu-grid">
+            <div class="menu-card" onclick="location.href='#edukasi'">
+                <div class="menu-icon">📚</div>
+                <h3>Edukasi & Tips</h3>
+                <p>Artikel dan panduan praktis untuk hidup sehat</p>
+            </div>
+            <div class="menu-card" onclick="location.href='#dashboard'">
+                <div class="menu-icon">📊</div>
+                <h3>Progress Dashboard</h3>
+                <p>Pantau perkembangan kesehatan Anda</p>
+            </div>
+            <div class="menu-card" onclick="location.href='#fitur'">
+                <div class="menu-icon">🎯</div>
+                <h3>Fitur Interaktif</h3>
+                <p>Tools untuk planning dan tracking</p>
+            </div>
+            <div class="menu-card" onclick="location.href='#auth'">
+                <div class="menu-icon">👤</div>
+                <h3>Profil Saya</h3>
+                <p>Kelola akun dan preferensi Anda</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edukasi Section -->
+    <section id="edukasi">
+        <h2>Artikel & Tips Terbaru</h2>
+        <div class="artikel-grid">
+            <div class="artikel-card">
+                <div class="artikel-img">🥗</div>
+                <div class="artikel-content">
+                    <h3>Panduan Nutrisi Seimbang</h3>
+                    <p>Pelajari cara menyusun menu makanan sehat dan bergizi untuk kebutuhan harian Anda.</p>
+                    <span class="artikel-tag">Nutrisi</span>
+                </div>
+            </div>
+            <div class="artikel-card">
+                <div class="artikel-img">🏃</div>
+                <div class="artikel-content">
+                    <h3>Olahraga untuk Pemula</h3>
+                    <p>Tips memulai rutinitas olahraga yang tepat sesuai dengan kondisi tubuh Anda.</p>
+                    <span class="artikel-tag">Olahraga</span>
+                </div>
+            </div>
+            <div class="artikel-card">
+                <div class="artikel-img">😴</div>
+                <div class="artikel-content">
+                    <h3>Pentingnya Tidur Berkualitas</h3>
+                    <p>Memahami dampak tidur yang cukup terhadap kesehatan fisik dan mental.</p>
+                    <span class="artikel-tag">Kesehatan</span>
+                </div>
+            </div>
+            <div class="artikel-card">
+                <div class="artikel-img">✨</div>
+                <div class="artikel-content">
+                    <h3>Rutinitas Skincare Harian</h3>
+                    <p>Panduan lengkap merawat kulit wajah dari pagi hingga malam hari.</p>
+                    <span class="artikel-tag">Skincare</span>
+                </div>
+            </div>
+            <div class="artikel-card">
+                <div class="artikel-img">💧</div>
+                <div class="artikel-content">
+                    <h3>Hidrasi yang Cukup</h3>
+                    <p>Mengapa minum air putih 8 gelas sehari penting untuk tubuh Anda.</p>
+                    <span class="artikel-tag">Hidrasi</span>
+                </div>
+            </div>
+            <div class="artikel-card">
+                <div class="artikel-img">🧘</div>
+                <div class="artikel-content">
+                    <h3>Meditasi dan Relaksasi</h3>
+                    <p>Teknik sederhana untuk mengurangi stres dan meningkatkan kesejahteraan.</p>
+                    <span class="artikel-tag">Mental Health</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 4rem;">Testimoni Pengguna</h2>
+        <div class="testimoni-container">
+            <div class="testimoni-card">
+                <div class="testimoni-quote">"</div>
+                <p class="testimoni-text">Website ini sangat membantu saya mengatur pola makan dan olahraga. Sekarang saya lebih disiplin dan sehat!</p>
+                <p class="testimoni-author">- Sarah, 28 tahun</p>
+            </div>
+            <div class="testimoni-card">
+                <div class="testimoni-quote">"</div>
+                <p class="testimoni-text">Fitur reminder-nya sangat berguna. Saya jadi nggak lupa minum air dan skincare routine!</p>
+                <p class="testimoni-author">- Dina, 24 tahun</p>
+            </div>
+            <div class="testimoni-card">
+                <div class="testimoni-quote">"</div>
+                <p class="testimoni-text">Dashboard progress membuat saya termotivasi untuk terus menjaga kesehatan. Highly recommended!</p>
+                <p class="testimoni-author">- Budi, 32 tahun</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Interaktif -->
+    <section id="fitur">
+        <h2>Fitur Interaktif</h2>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('meal')">🍽️ Meal Planner</button>
+                <button class="tab-btn" onclick="openTab('workout')">💪 Jadwal Olahraga</button>
+                <button class="tab-btn" onclick="openTab('skincare')">✨ Skincare Routine</button>
+                <button class="tab-btn" onclick="openTab('reminder')">⏰ Reminder</button>
+            </div>
+
+            <!-- Meal Planner -->
+            <div id="meal" class="tab-content active">
+                <h3>Meal Planner Mingguan</h3>
+                <p>Rencanakan menu makanan sehat Anda untuk seminggu ke depan</p>
+                
+                <div class="form-group">
+                    <label>Pilih Hari:</label>
+                    <select>
+                        <option>Senin</option>
+                        <option>Selasa</option>
+                        <option>Rabu</option>
+                        <option>Kamis</option>
+                        <option>Jumat</option>
+                        <option>Sabtu</option>
+                        <option>Minggu</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Sarapan:</label>
+                    <input type="text" placeholder="Contoh: Oatmeal dengan buah">
+                </div>
+
+                <div class="form-group">
+                    <label>Makan Siang:</label>
+                    <input type="text" placeholder="Contoh: Nasi merah, ayam, sayur">
+                </div>
+
+                <div class="form-group">
+                    <label>Makan Malam:</label>
+                    <input type="text" placeholder="Contoh: Salad salmon">
+                </div>
+
+                <div class="form-group">
+                    <label>Snack:</label>
+                    <input type="text" placeholder="Contoh: Buah-buahan">
+                </div>
+
+                <button class="btn-primary">Simpan Menu</button>
+
+                <h4 style="margin-top: 2rem; color: #667eea;">Rencana Menu Minggu Ini:</h4>
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Sarapan</th>
+                            <th>Makan Siang</th>
+                            <th>Makan Malam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin</td>
+                            <td>Oatmeal + Buah</td>
+                            <td>Nasi Merah + Ayam</td>
+                            <td>Salad Sayur</td>
+                        </tr>
+                        <tr>
+                            <td>Selasa</td>
+                            <td>Roti Gandum + Telur</td>
+                            <td>Quinoa Bowl</td>
+                            <td>Ikan Panggang</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Jadwal Olahraga -->
+            <div id="workout" class="tab-content">
+                <h3>Jadwal Olahraga Rutin</h3>
+                <p>Atur jadwal olahraga mingguan Anda</p>
+
+                <div class="form-group">
+                    <label>Jenis Olahraga:</label>
+                    <select>
+                        <option>Cardio</option>
+                        <option>Strength Training</option>
+                        <option>Yoga</option>
+                        <option>Pilates</option>
+                        <option>Jogging</option>
+                        <option>Swimming</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Durasi (menit):</label>
+                    <input type="number" placeholder="30" min="5" max="180">
+                </div>
+
+                <div class="form-group">
+                    <label>Pilih Hari:</label>
+                    <div class="schedule-grid">
+                        <div class="schedule-day active">Sen</div>
+                        <div class="schedule-day">Sel</div>
+                        <div class="schedule-day active">Rab</div>
+                        <div class="schedule-day">Kam</div>
+                        <div class="schedule-day active">Jum</div>
+                        <div class="schedule-day">Sab</div>
+                        <div class="schedule-day">Min</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Waktu:</label>
+                    <input type="time">
+                </div>
+
+                <div class="form-group">
+                    <label>Catatan:</label>
+                    <textarea rows="3" placeholder="Target atau catatan khusus..."></textarea>
+                </div>
+
+                <button class="btn-primary">Tambah Jadwal</button>
+
+                <h4 style="margin-top: 2rem; color: #667eea;">Jadwal Minggu Ini:</h4>
+                <div class="routine-step">
+                    <div class="step-number">1</div>
+                    <div style="flex: 1;">
+                        <strong>Senin - 06:00</strong>
+                        <p>Cardio - 30 menit | Target: 5km lari</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">2</div>
+                    <div style="flex: 1;">
+                        <strong>Rabu - 18:00</strong>
+                        <p>Strength Training - 45 menit | Focus: Upper Body</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">3</div>
+                    <div style="flex: 1;">
+                        <strong>Jumat - 06:00</strong>
+                        <p>Yoga - 60 menit | Relaksasi & Fleksibilitas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skincare Routine -->
+            <div id="skincare" class="tab-content">
+                <h3>Skincare Routine</h3>
+                <p>Atur rutinitas perawatan kulit Anda</p>
+
+                <div class="form-group">
+                    <label>Waktu Routine:</label>
+                    <select>
+                        <option>Pagi</option>
+                        <option>Malam</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Nama Produk:</label>
+                    <input type="text" placeholder="Contoh: Facial Wash">
+                </div>
+
+                <div class="form-group">
+                    <label>Urutan Step:</label>
+                    <input type="number" placeholder="1" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Catatan:</label>
+                    <textarea rows="2" placeholder="Cara pakai atau catatan khusus..."></textarea>
+                </div>
+
+                <button class="btn-primary">Tambah Step</button>
+
+                <h4 style="margin-top: 2rem; color: #667eea;">Routine Pagi:</h4>
+                <div class="routine-step">
+                    <div class="step-number">1</div>
+                    <div style="flex: 1;">
+                        <strong>Facial Wash</strong>
+                        <p>Bersihkan wajah dengan lembut menggunakan air hangat</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">2</div>
+                    <div style="flex: 1;">
+                        <strong>Toner</strong>
+                        <p>Aplikasikan dengan kapas, tepuk lembut ke wajah</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">3</div>
+                    <div style="flex: 1;">
+                        <strong>Serum</strong>
+                        <p>Vitamin C serum untuk brightening</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">4</div>
+                    <div style="flex: 1;">
+                        <strong>Moisturizer</strong>
+                        <p>Aplikasikan secara merata ke seluruh wajah</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">5</div>
+                    <div style="flex: 1;">
+                        <strong>Sunscreen SPF 50</strong>
+                        <p>Jangan lupa apply ulang setiap 3-4 jam</p>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 2rem; color: #667eea;">Routine Malam:</h4>
+                <div class="routine-step">
+                    <div class="step-number">1</div>
+                    <div style="flex: 1;">
+                        <strong>Makeup Remover</strong>
+                        <p>Double cleansing untuk hasil maksimal</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">2</div>
+                    <div style="flex: 1;">
+                        <strong>Facial Wash</strong>
+                        <p>Bersihkan sisa kotoran dan minyak</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">3</div>
+                    <div style="flex: 1;">
+                        <strong>Toner</strong>
+                        <p>Seimbangkan pH kulit</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">4</div>
+                    <div style="flex: 1;">
+                        <strong>Night Serum</strong>
+                        <p>Retinol atau niacinamide untuk regenerasi</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <div class="step-number">5</div>
+                    <div style="flex: 1;">
+                        <strong>Night Cream</strong>
+                        <p>Krim lebih tebal untuk hidrasi maksimal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reminder -->
+            <div id="reminder" class="tab-content">
+                <h3>Reminder Harian</h3>
+                <p>Atur pengingat untuk aktivitas kesehatan Anda</p>
+
+                <div class="form-group">
+                    <label>Jenis Reminder:</label>
+                    <select id="reminderType">
+                        <option>Minum Air</option>
+                        <option>Makan</option>
+                        <option>Olahraga</option>
+                        <option>Skincare</option>
+                        <option>Tidur</option>
+                        <option>Minum Vitamin</option>
+                        <option>Custom</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Pesan Reminder:</label>
+                    <input type="text" placeholder="Contoh: Waktunya minum air!">
+                </div>
+
+                <div class="form-group">
+                    <label>Waktu:</label>
+                    <input type="time">
+                </div>
+
+                <div class="form-group">
+                    <label>Ulangi Setiap:</label>
+                    <select>
+                        <option>Tidak diulang</option>
+                        <option>Setiap hari</option>
+                        <option>Setiap jam</option>
+                        <option>Setiap 2 jam</option>
+                        <option>Setiap 3 jam</option>
+                        <option>Hari kerja saja</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary">Tambah Reminder</button>
+
+                <h4 style="margin-top: 2rem; color: #667eea;">Reminder Aktif:</h4>
+                <div class="reminder-list">
+                    <div class="reminder-item">
+                        <div>
+                            <strong>💧 Minum Air</strong>
+                            <p class="reminder-time">08:00, 10:00, 12:00, 14:00, 16:00, 18:00</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                    <div class="reminder-item">
+                        <div>
+                            <strong>🍽️ Sarapan</strong>
+                            <p class="reminder-time">07:00 - Setiap hari</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                    <div class="reminder-item">
+                        <div>
+                            <strong>💪 Olahraga</strong>
+                            <p class="reminder-time">06:00 - Senin, Rabu, Jumat</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                    <div class="reminder-item">
+                        <div>
+                            <strong>✨ Skincare Pagi</strong>
+                            <p class="reminder-time">07:30 - Setiap hari</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                    <div class="reminder-item">
+                        <div>
+                            <strong>✨ Skincare Malam</strong>
+                            <p class="reminder-time">21:00 - Setiap hari</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                    <div class="reminder-item">
+                        <div>
+                            <strong>😴 Persiapan Tidur</strong>
+                            <p class="reminder-time">22:00 - Setiap hari</p>
+                        </div>
+                        <button class="btn-delete">Hapus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Dashboard -->
+    <section id="dashboard">
+        <h2>Progress Dashboard</h2>
+        <p style="text-align: center; margin-bottom: 3rem; color: #666;">Pantau perkembangan kesehatan Anda secara real-time</p>
+        
+        <div class="dashboard-grid">
+            <!-- Jam Tidur -->
+            <div class="dashboard-card">
+                <h3>😴 Jam Tidur</h3>
+                <div class="dashboard-value">7.5 jam</div>
+                <p style="color: #666;">Target: 8 jam/hari</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 94%;"></div>
+                </div>
+                <span class="dashboard-status status-good">✓ Hampir Tercapai</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Minggu ini: 7.2 jam rata-rata<br>
+                    Tidur terbaik: Jumat (8.5 jam)
+                </p>
+            </div>
+
+            <!-- Hidrasi Harian -->
+            <div class="dashboard-card">
+                <h3>💧 Hidrasi Harian</h3>
+                <div class="dashboard-value">6 gelas</div>
+                <p style="color: #666;">Target: 8 gelas/hari</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 75%;"></div>
+                </div>
+                <span class="dashboard-status status-warning">⚠ Perlu Ditingkatkan</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Hari ini: 6 gelas (1500ml)<br>
+                    Reminder berikutnya: 15:00
+                </p>
+            </div>
+
+            <!-- Berat Badan -->
+            <div class="dashboard-card">
+                <h3>⚖️ Berat Badan</h3>
+                <div class="dashboard-value">65 kg</div>
+                <p style="color: #666;">Target: 63 kg</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 60%;"></div>
+                </div>
+                <span class="dashboard-status status-good">✓ Progress Baik</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Turun 2kg bulan ini<br>
+                    BMI: 22.5 (Normal)
+                </p>
+            </div>
+
+            <!-- Kondisi Terkini -->
+            <div class="dashboard-card">
+                <h3>💪 Kondisi Terkini</h3>
+                <div class="dashboard-value">85%</div>
+                <p style="color: #666;">Kesehatan Overall</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 85%;"></div>
+                </div>
+                <span class="dashboard-status status-good">✓ Kondisi Prima</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Olahraga: 3x minggu ini<br>
+                    Mood: Baik
+                </p>
+            </div>
+
+            <!-- Aktivitas Olahraga -->
+            <div class="dashboard-card">
+                <h3>🏃 Aktivitas Olahraga</h3>
+                <div class="dashboard-value">180 menit</div>
+                <p style="color: #666;">Minggu ini</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 90%;"></div>
+                </div>
+                <span class="dashboard-status status-good">✓ Target Tercapai</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Target mingguan: 150 menit<br>
+                    Kalori terbakar: 850 kkal
+                </p>
+            </div>
+
+            <!-- Konsistensi Skincare -->
+            <div class="dashboard-card">
+                <h3>✨ Konsistensi Skincare</h3>
+                <div class="dashboard-value">95%</div>
+                <p style="color: #666;">Bulan ini</p>
+                <div class="dashboard-progress">
+                    <div class="dashboard-progress-bar" style="width: 95%;"></div>
+                </div>
+                <span class="dashboard-status status-good">✓ Sangat Konsisten</span>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Streak: 28 hari berturut-turut<br>
+                    Routine pagi & malam: Lengkap
+                </p>
+            </div>
+        </div>
+
+        <!-- Summary Card -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
+            <h3 style="color: white; margin-bottom: 1rem;">🎉 Pencapaian Minggu Ini</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">28</div>
+                    <div>Hari Streak</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">15</div>
+                    <div>Workout Selesai</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">42L</div>
+                    <div>Air Diminum</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">2kg</div>
+                    <div>Berat Turun</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manajemen Pengguna / Auth -->
+    <section id="auth">
+        <h2>Manajemen Pengguna</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin-top: 2rem;">
+            <!-- Login Form -->
+            <div class="auth-container">
+                <h2>Login</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" placeholder="nama@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" placeholder="Masukkan password" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                            <input type="checkbox"> Ingat saya
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+                    <p style="text-align: center; margin-top: 1rem; color: #666;">
+                        <a href="#" style="color: #667eea;">Lupa password?</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div class="auth-container">
+                <h2>Registrasi</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Nama Lengkap:</label>
+                        <input type="text" placeholder="Nama lengkap Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" placeholder="nama@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" placeholder="Min. 8 karakter" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Password:</label>
+                        <input type="password" placeholder="Ulangi password" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                            <input type="checkbox" required> Saya setuju dengan syarat & ketentuan
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Daftar Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Profil -->
+    <section id="kontak">
+        <h2>Hubungi Kami</h2>
+        <p style="text-align: center; margin-bottom: 3rem; color: #666;">
+            Ada pertanyaan? Tim kami siap membantu Anda
+        </p>
+
+        <div class="kontak-grid">
+            <div class="kontak-card">
+                <div class="kontak-icon">📧</div>
+                <h3>Email</h3>
+                <p>support@physicalselfcare.com</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                    Response time: 1-2 hari kerja
+                </p>
+            </div>
+
+            <div class="kontak-card">
+                <div class="kontak-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p>+62 812-3456-7890</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                    Senin - Jumat: 09:00 - 17:00 WIB
+                </p>
+            </div>
+
+            <div class="kontak-card">
+                <div class="kontak-icon">📍</div>
+                <h3>Alamat</h3>
+                <p>Jl. Kesehatan No. 123</p>
+                <p>Jakarta Selatan, 12345</p>
+            </div>
+
+            <div class="kontak-card">
+                <div class="kontak-icon">💬</div>
+                <h3>Live Chat</h3>
+                <p>Chat langsung dengan tim kami</p>
+                <button style="background: white; color: #667eea; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; margin-top: 1rem; cursor: pointer; font-weight: bold;">
+                    Mulai Chat
+                </button>
+            </div>
+        </div>
+
+        <div style="background: white; padding: 3rem; border-radius: 15px; margin-top: 3rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+            <h3 style="color: #667eea; text-align: center; margin-bottom: 2rem;">Ikuti Kami di Media Sosial</h3>
+            <div class="social-links" style="justify-content: center; font-size: 2.5rem;">
+                <a href="#" style="color: #667eea;">📘</a>
+                <a href="#" style="color: #667eea;">📸</a>
+                <a href="#" style="color: #667eea;">🐦</a>
+                <a href="#" style="color: #667eea;">💼</a>
+                <a href="#" style="color: #667eea;">▶️</a>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: #666;">
+                @physicalselfcare - Dapatkan tips kesehatan harian dan inspirasi!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Physical Self-Care</h3>
+                <p style="color: #a0aec0;">
+                    Platform lengkap untuk mendukung perjalanan kesehatan fisik Anda. Hidup sehat, hidup bahagia.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Link Cepat</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#edukasi">Artikel & Tips</a></li>
+                    <li><a href="#fitur">Fitur Interaktif</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#kontak">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Fitur</h3>
+                <ul>
+                    <li><a href="#">Meal Planner</a></li>
+                    <li><a href="#">Jadwal Olahraga</a></li>
+                    <li><a href="#">Skincare Routine</a></li>
+                    <li><a href="#">Reminder</a></li>
+                    <li><a href="#">Progress Tracking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informasi</h3>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Physical Self-Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
